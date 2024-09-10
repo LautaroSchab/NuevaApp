@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"    
+             xmlns:vm="clr-namespace:AppFakeStore.ViewModels"
+             x:DataType="vm:MainViewModel"
+             Title="{Binding Title}"
+             x:Class="AppFakeStore.MainPage"
+             BackgroundColor="#e1c1f8">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label Text="MENÚ DE OPCIONES"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   TextColor="#333"
+                   FontAttributes="Bold" />
+
+            <Grid RowSpacing="15" ColumnSpacing="15" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+                <Button ContentLayout="Top, 10"
+                        Grid.Row="0"
+                        Text="Productos"
+                        HeightRequest="100"
+                        BackgroundColor="#4F3F9B"
+                        TextColor="Turquoise"
+                        FontAttributes="Bold"
+                        CornerRadius="20"
+                        Command="{Binding GoToProductoListaCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xe1bd;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+                <Button ContentLayout="Top, 10"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="Categorías"
+                        HeightRequest="100"
+                        BackgroundColor="#4F3F9B"
+                        TextColor="Turquoise"
+                        FontAttributes="Bold"
+                        CornerRadius="20">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xf05b;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+
+                <Button ContentLayout="Top, 10"
+                        Grid.Row="1"
+                        Text="Usuarios"
+                        HeightRequest="100"
+                        BackgroundColor="#4F3F9B"
+                        TextColor="Turquoise"
+                        FontAttributes="Bold"
+                        CornerRadius="20"
+                        Command="{Binding GoToUsuarioListaCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xe7fd;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+                <Button ContentLayout="Top, 10"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="Clientes"
+                        HeightRequest="100"
+                        BackgroundColor="#4F3F9B"
+                        TextColor="Turquoise"
+                        FontAttributes="Bold"
+                        CornerRadius="20">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xf233;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+
+                <Button ContentLayout="Top, 10"
+                        Grid.Row="2"
+                        Text="Envios"
+                        HeightRequest="100"
+                        BackgroundColor="#4F3F9B"
+                        TextColor="Turquoise"
+                        FontAttributes="Bold"
+                        CornerRadius="20">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xf86b;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+                <Button ContentLayout="Top, 10"
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Text="Mensajes"
+                        HeightRequest="100"
+                        BackgroundColor="#4F3F9B"
+                        TextColor="Turquoise"
+                        FontAttributes="Bold"
+                        CornerRadius="20">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xe0b7;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+
+                <Button ContentLayout="Top, 10"
+                        Grid.Row="3"
+                        Text="Acerca"
+                        HeightRequest="100"
+                        BackgroundColor="#4F3F9B"
+                        TextColor="Turquoise"
+                        FontAttributes="Bold"
+                        CornerRadius="20"
+                        Command="{Binding GoToAcercaCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xe88e;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+                <Button ContentLayout="Top, 10"
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        Text="Salir"
+                        HeightRequest="100"
+                        BackgroundColor="#FF0266"
+                        TextColor="Turquoise"
+                        FontAttributes="Bold"
+                        CornerRadius="20"
+                        Command="{Binding ExitCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xe9ba;" Color="White" />
+                    </Button.ImageSource>
+                </Button>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

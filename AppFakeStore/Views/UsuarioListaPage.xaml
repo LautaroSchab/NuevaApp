@@ -1,0 +1,81 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFakeStore.Views.UsuarioListaPage"
+             xmlns:vm="clr-namespace:AppFakeStore.ViewModels"
+             xmlns:model="clr-namespace:AppFakeStore.Models"
+             x:DataType="vm:UsuarioListaViewModel"
+             Title="{Binding Title}"
+             Background="#e1c1f8">
+
+    <Grid ColumnDefinitions="*,*" ColumnSpacing="5" RowDefinitions="*,Auto" RowSpacing="0">
+
+        <RefreshView Grid.ColumnSpan="2" Command="{Binding GetUsuariosCommand}" IsRefreshing="{Binding IsRefreshing}">
+
+            <CollectionView Grid.Row="1"
+                            ItemsSource="{Binding Usuarios}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding UsuarioSeleccionado}"
+                            SelectionChangedCommand="{Binding GoToDetailCommand}">
+                <CollectionView.EmptyView>
+                    <StackLayout Padding="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <ActivityIndicator IsRunning="True" Color="Purple"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Usuario">
+                        <Grid 
+                            Background="#4F3F9B"
+                            ColumnDefinitions="0.2*,0.8*"
+                            Margin="10" 
+                            ColumnSpacing="10" 
+                            RowSpacing="2" 
+                            RowDefinitions="Auto,Auto">
+
+                            
+                            <Image Grid.Column="0"
+                                   Grid.Row="0"
+                                   Grid.RowSpan="2"
+                                   Source="iconousuario.png" 
+                                   WidthRequest="60" 
+                                   HeightRequest="60" 
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Center"/>
+
+                            <Label Grid.Column="1"
+                                   Grid.Row="0"
+                                   Text="{Binding FullName}"
+                                   VerticalOptions="Center"
+                                   TextColor="White"
+                                   FontSize="18"/>
+
+                            
+                            <Label Grid.Column="1"
+                                   Grid.Row="1"
+                                   Text="{Binding email}"
+                                   VerticalOptions="Center"
+                                   TextColor="Turquoise"
+                                   FontSize="16"/>
+
+                            
+                            <Label Grid.Column="2"
+                                   Grid.Row="0"
+                                   Grid.RowSpan="2"
+                                   Text="{Binding id}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="End"
+                                   Margin="0,0,20,0" 
+                                   TextColor="Turquoise"
+                                   FontSize="16"/>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage>
+
+
+
